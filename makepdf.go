@@ -20,7 +20,7 @@ type Presentation struct {
 func main() {
 
     // 定数定義
-    path := "sample.csv"
+    path := "csv/sample.csv"
     presentation := new (Presentation)
     
     // CSVファイル読み込み
@@ -53,7 +53,7 @@ func main() {
     A4Yoko := gopdf.Rect{W: A4.H, H: A4.W}
     pdf.Start(gopdf.Config{PageSize: A4Yoko})
     // TTFフォントを取り込む --- (*3)
-    err = pdf.AddTTFFont("mukasi", "./gomarice_mukasi_mukasi.ttf"    )
+    err = pdf.AddTTFFont("mukasi", "font/gomarice_mukasi_mukasi.ttf"    )
     if err != nil {
         panic(err)
     }
@@ -83,5 +83,5 @@ func main() {
         }
     }
     // PDFをファイルに書き出す --- (*5)
-    pdf.WritePdf("hello2.pdf")
+    pdf.WritePdf("pdf/hello3.pdf")
 }
