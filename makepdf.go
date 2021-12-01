@@ -19,7 +19,7 @@ type Presentation struct {
 
 func main() {
 
-    // 定数定義
+    // 定数定義？←定数の定義の仕方に直す
     path := "csv/sample.csv"
     presentation := new (Presentation)
     
@@ -40,7 +40,7 @@ func main() {
             panic(err)
         }
 
-        //構造体変換処理
+        //CSVデータを構造体へ変換処理
         page := Page{Title: record[0], Contents: record[1:]}
         fmt.Println(page)
         presentation.Pages = append(presentation.Pages, page)
@@ -66,7 +66,7 @@ func main() {
     // 初期座標
     y := 0
 
-    //　文字を書き込む --- (*4)
+    //　CSVから取得したを書き込む
     for _, v := range presentation.Pages {
 
         pdf.AddPage()
@@ -82,6 +82,6 @@ func main() {
             y = y + 50
         }
     }
-    // PDFをファイルに書き出す --- (*5)
-    pdf.WritePdf("pdf/hello3.pdf")
+    // PDFをファイルに書き出す
+    pdf.WritePdf("pdf/発表用.pdf")
 }
